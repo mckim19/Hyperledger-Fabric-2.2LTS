@@ -3,7 +3,7 @@
 source scriptUtils.sh
 
 CHANNEL_NAME=${1:-"mychannel"}
-CC_NAME=${2:-"basic"}
+CC_NAME=${2:-"fabcar"}
 CC_SRC_PATH=${3:-"NA"}
 CC_SRC_LANGUAGE=${4:-"go"}
 CC_VERSION=${5:-"1.0"}
@@ -54,6 +54,9 @@ if [ "$CC_SRC_PATH" = "NA" ]; then
   elif [ "$CC_NAME" = "sbe" ]; then
     println $'\e[0;32m'asset-transfer-sbe$'\e[0m' chaincode
     CC_SRC_PATH="../asset-transfer-sbe"
+  elif [ "$CC_NAME" = "fabcar" ]; then
+    println $'\e[0;32m'fabcar$'\e[0m' chaincode
+    CC_SRC_PATH="../asset-transfer-fabcar"
   else
     fatalln "The chaincode name ${CC_NAME} is not supported by this script. Supported chaincode names are: basic, ledger, private, sbe, secured"
   fi
